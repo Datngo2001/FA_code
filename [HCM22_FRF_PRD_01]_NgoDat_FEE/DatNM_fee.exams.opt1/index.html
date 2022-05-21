@@ -5,14 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Review 1</title>
+    <title>Problem 1</title>
   </head>
   <body>
     <header></header>
-    <main class="row">
-      <div class="col-2 col-s-2"></div>
-      <div class="col-8 col-s-10"></div>
-      <div class="col-2 col-s-12"></div>
+    <main>
+      <table id="order-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Quantity/Update</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Tax</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- product 1 -->
+          <tr id="prod-1">
+            <td class="product">
+              <div class="image-wraper">
+                <img src="./asset/product1.png" alt="product1" />
+              </div>
+            </td>
+            <td class="description">
+              <p class="name">MASSA AST</p>
+              <p class="detail">Color: black, Material: metal</p>
+            </td>
+            <td class="quantity-update">
+              <div class="update-wraper">
+                <div class="quantity">1</div>
+                <button class="minus-btn">-</button>
+                <button class="add-btn">+</button>
+                <button class="delete-btn">x</button>
+              </div>
+            </td>
+            <td class="price">$120.00</td>
+            <td class="discount">$25.00</td>
+            <td class="tax">$15.00</td>
+            <td class="total">$110.00</td>
+          </tr>
+          <!-- product 2 -->
+          <tr id="prod-2">
+            <td class="product">
+              <div class="image-wraper">
+                <img src="./asset/product1.png" alt="product1" />
+              </div>
+            </td>
+            <td class="description">
+              <p class="name">MASSA AST</p>
+              <p class="detail">Color: black, Material: metal</p>
+            </td>
+            <td class="quantity-update">
+              <div class="update-wraper">
+                <div class="quantity">1</div>
+                <button class="minus-btn">-</button>
+                <button class="add-btn">+</button>
+                <button class="delete-btn">x</button>
+              </div>
+            </td>
+            <td class="price">$7.00</td>
+            <td class="discount">--</td>
+            <td class="tax">$1.00</td>
+            <td class="total">$8.00</td>
+          </tr>
+          <!-- product 3 -->
+          <tr id="prod-3">
+            <td class="product">
+              <div class="image-wraper">
+                <img src="./asset/product3.png" alt="product1" />
+              </div>
+            </td>
+            <td class="description">
+              <p class="name">MASSA AST</p>
+              <p class="detail">Color: black, Material: metal</p>
+            </td>
+            <td class="quantity-update">
+              <div class="update-wraper">
+                <div class="quantity">1</div>
+                <button class="minus-btn">-</button>
+                <button class="add-btn">+</button>
+                <button class="delete-btn">x</button>
+              </div>
+            </td>
+            <td class="price">$120.00</td>
+            <td class="discount">$25.00</td>
+            <td class="tax">$15.00</td>
+            <td class="total">$110.00</td>
+          </tr>
+          <!-- Pricing  -->
+          <tr>
+            <td class="total-price-label" colspan="6">Total Price:</td>
+            <td class="total-price">$228.00</td>
+          </tr>
+          <tr>
+            <td class="total-discount-label" colspan="6">Total Discount:</td>
+            <td class="total-dicount">$50.00</td>
+          </tr>
+          <tr>
+            <td class="total-tax-label" colspan="6">Total Tax:</td>
+            <td class="total-tax">$31.00</td>
+          </tr>
+        </tbody>
+      </table>
     </main>
     <footer></footer>
   </body>
