@@ -38,7 +38,7 @@ function addClickHandle(id) {
         quantity.innerHTML = val + 1
         updateTax(id)
         updateTotal(id)
-        updateTotalPrice(id)
+        updateTotalPrice()
         updateTotalDiscount(id)
         updateTotalTax(id)
     }
@@ -54,7 +54,7 @@ function minusClickHandle(id) {
         }
         updateTax(id)
         updateTotal(id)
-        updateTotalPrice(id)
+        updateTotalPrice()
         updateTotalDiscount(id)
         updateTotalTax(id)
     }
@@ -63,7 +63,7 @@ function delClickHandle(id) {
     return () => {
         const row = document.querySelector(`#prod-${id}`)
         updateTax(id)
-        updateTotalPrice(id)
+        updateTotalPrice()
         updateTotalDiscount(id)
         updateTotalTax(id)
         row.remove()
@@ -99,8 +99,18 @@ function updateTotal(id) {
     const total = document.querySelector(`#prod-${id} > td.total`)
     total.innerHTML = "$" + Total
 }
-function updateTotalPrice(id) {
+function updateTotalPrice() {
+    let TotalPrice = 0;
 
+    data.forEach((prod, index) => {
+        const price = document.querySelector(`#prod-${index} > td.price`)
+        let Price = convertToNum(price.innerHTML.substring(1, price.innerHTML.length - 1))
+
+        TotalPrice += Price
+    })
+
+    const totalPrice = document.querySelector("#order-table > tbody > tr:nth-child(4) > td.total-price")
+    totalPrice.innerHTML = "$" + TotalPrice
 }
 function updateTotalDiscount(id) {
 

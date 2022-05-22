@@ -13,10 +13,29 @@
   letter-spacing: 0.1px;
   color: #000;
 }
-
+p {
+  font-size: small;
+}
 /* Your Code here */
-.nav-link {
+.color-primary {
+  color: #23a6f0;
+}
+.color-secondary {
   color: var(--bs-secondary);
+}
+.color-primary-dark {
+  color: #1983c0;
+}
+.background-primary {
+  background-color: #23a6f0;
+}
+.background-dark {
+  background-color: #252b42;
+}
+.background-gray {
+  background-color: #fafafa;
+}
+.nav-link {
   width: auto;
 }
 .navTextLeft {
@@ -26,14 +45,170 @@
 .navTextRight {
   font-size: small;
   font-weight: bold;
-  color: #23a6f0;
   text-decoration: none;
-}
-.topBar {
-  background-color: #252b42;
 }
 .navTextTop {
   font-size: small;
   font-weight: bold;
   color: white;
+}
+
+.section-1 {
+  width: 85%;
+  min-height: 75vh;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  background: rgb(151, 233, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(151, 233, 250, 1) 0%,
+    rgba(161, 234, 232, 1) 50%,
+    rgba(171, 236, 215, 1) 100%
+  );
+}
+.section-1 .left {
+  padding: 10% 0 0 15%;
+}
+.section-1 .left p {
+  margin: 0;
+  font-weight: bold;
+}
+.section-1 .left p:first-child {
+  margin: 0;
+  font-weight: bolder;
+}
+.section-1 .left h1 {
+  margin: 20px 0 20px 0;
+  font-weight: bolder;
+}
+.section-1 .left button {
+  color: white;
+  width: 150px;
+  font-weight: bolder;
+  margin: 20px 0;
+}
+.section-1 .right img {
+  display: block;
+  max-width: 120%;
+  height: auto;
+}
+
+.section-2 {
+  flex-wrap: wrap;
+  margin-top: 60px !important;
+  margin-bottom: 60px !important;
+}
+.section-2 div {
+  flex-basis: 100px;
+}
+
+.section-3 {
+  width: 85%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 250px 250px;
+  grid-template-areas:
+    "prod1 prod2"
+    "prod1 prod3";
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  max-height: 50%;
+  overflow: hidden;
+}
+.section-3 .prod-1 {
+  grid-area: prod1;
+  background-image: url("../images/top-product-1.png");
+  position: relative;
+}
+.section-3 .prod-2 {
+  grid-area: prod2;
+  background-image: url("../images/top-product-2.png");
+  position: relative;
+}
+.section-3 .prod-3 {
+  grid-area: prod3;
+  background-image: url("../images/top-product-3.png");
+  position: relative;
+}
+.section-3 [class*="prod-"] div {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  color: white;
+  background-color: rgba(90, 160, 198, 0.578);
+}
+.section-3 [class*="prod-"] div button {
+  color: white;
+  border-color: white;
+}
+.section-3 [class*="prod-"] div h4 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.section-3 .prod-1 div {
+  height: 40%;
+  padding: 50px 50px;
+}
+.section-3 .prod-2 div {
+  height: 60%;
+  padding: 35px 20px;
+}
+.section-3 .prod-3 div {
+  height: 60%;
+  padding: 35px 20px;
+}
+
+.section-4 {
+  width: 80%;
+  height: 400px;
+  margin: auto;
+  margin-top: 100px;
+}
+.section-4 img {
+  height: 400px;
+  object-fit: cover;
+}
+.section-4 img:first-child {
+  width: 200px !important;
+  margin-right: 20px;
+}
+.section-4 img:last-child {
+  width: 250px !important;
+}
+.section-4 div:first-child {
+  text-align: end;
+}
+.section-4 div:last-child {
+  padding-left: 50px;
+}
+.section-4 div:last-child p {
+  font-weight: 500;
+}
+.section-4 div:last-child p:first-child,
+h3 {
+  font-weight: bolder;
+}
+
+.bandage {
+  margin-top: 50px;
+  padding: 40px 11%;
+}
+.info {
+  width: 80%;
+  padding-top: 30px;
+}
+.info h6 {
+  font-weight: bold;
+}
+
+.last-line {
+  padding: 10px 11%;
+}
+.last-line p {
+  margin: 0;
+  font-weight: bolder;
 }
