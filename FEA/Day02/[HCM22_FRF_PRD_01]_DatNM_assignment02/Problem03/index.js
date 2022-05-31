@@ -34,32 +34,21 @@ function getDataPromise(url) {
       .fail(err => reject(err))
   })
 }
-getDataPromise('https://jsonplaceholder.typicode.com/users')
-  .then(usersData => {
-    users = usersData
-    const promises = users.map((user, index) =>
-      getDataPromise(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
-        .then(posts => user.posts = posts)
-    )
-    return Promise.allSettled(promises)
-  })
-  .then(() => {
-    let promises = []
-    users.forEach(user => {
-      user.posts.forEach(post => {
-        const promise = getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
-          .then(comment => post.comments = comment)
-        promises.push(promise)
-      })
+
+async function loadUserDataThenRender() {
+  users = await getDataPromise("https://jsonplaceholder.typicode.com/users")
+  users.forEach(async user => {
+    const posts = await getDataPromise(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
+    user.posts = posts
+    user.posts.forEach(async post => {
+      const comment = await getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
+      post.comments = comment
+      renderPage(users)
     })
-    return Promise.allSettled(promises)
-  })
-  .then(() => renderPage(users))
-  .catch(err => {
-    console.log(err)
-  })
+  });
+}
 
-
+loadUserDataThenRender()
 
 
 // MOCK DATA - uncomment these lines to see the result
