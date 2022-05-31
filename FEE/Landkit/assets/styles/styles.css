@@ -1,0 +1,114 @@
+* {
+  font-family: Montserrat;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.1px;
+  color: #000;
+}
+p {
+  font-size: small;
+}
+/* Your Code here */
+.color-primary {
+  color: #335ee9;
+}
+.color-secondary {
+  color: #899ab4;
+}
+.color-white {
+  color: white;
+}
+.color-primary-dark {
+  color: #1983c0;
+}
+.background-primary {
+  background-color: #335ee9;
+}
+.background-secondary {
+  background-color: #e9efff;
+}
+.background-dark {
+  background-color: #252b42;
+}
+.background-gray {
+  background-color: #fafafa;
+}
+.nav-link {
+  width: auto;
+}
+.navTextLeft {
+  font-size: small;
+  font-weight: bold;
+}
+.navTextRight {
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+}
+.navTextTop {
+  font-size: small;
+  font-weight: bold;
+  color: white;
+}
+
+.section-1 {
+  margin: auto;
+  margin-top: 30px;
+}
+.section-1 .left {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.section-1 .left p {
+  margin: 0;
+}
+.section-1 .left p:first-child {
+  margin: 0;
+  font-weight: bolder;
+}
+.section-1 .left button {
+  font-size: small;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+.section-1 .left button:first-of-type {
+  color: white;
+  width: 150px;
+  margin: 20px 0;
+}
+.section-1 .left button:last-of-type {
+  font-weight: normal;
+}
+.section-1 .right img {
+  display: block;
+  max-width: 120%;
+  height: auto;
+}
+
+.section-2 {
+  flex-wrap: wrap;
+  margin-top: 60px !important;
+  margin-bottom: 60px !important;
+}
+.section-2 div {
+  flex-basis: 100px;
+}
+
+.section-3 {
+  margin-top: 50px;
+}
+.section-3 p {
+  margin-bottom: 5px;
+}
+
+footer {
+}
