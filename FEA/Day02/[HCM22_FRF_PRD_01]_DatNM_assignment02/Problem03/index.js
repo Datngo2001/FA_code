@@ -27,6 +27,7 @@ function renderPage(users) {
 
 // YOUR CODE HERE
 let users = []
+
 function getDataPromise(url) {
   return new Promise((resolve, reject) => {
     $.get(url)
@@ -35,21 +36,56 @@ function getDataPromise(url) {
   })
 }
 
-async function loadUserDataThenRender() {
-  users = await getDataPromise("https://jsonplaceholder.typicode.com/users")
-  users.forEach(async user => {
-    const posts = await getDataPromise(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
-    user.posts = posts
-    user.posts.forEach(async post => {
-      const comment = await getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
-      post.comments = comment
-      renderPage(users)
-    })
-  });
+async function executePromiseAll(promises) {
+  try {
+    return await Promise.all(promises)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-loadUserDataThenRender()
+// Begin get data
+async function loadDataThenRender() {
+  try {
+    users = await getDataPromise("https://jsonplaceholder.typicode.com/users")
+  } catch (error) {
+    console.log(error)
+  }
 
+  const postPromise = users.map(user => {
+    return getDataPromise(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
+      .then(posts => user.posts = posts)
+  });
+
+  await executePromiseAll(postPromise)
+
+  const commentPromises = users.map(user => {
+    let promises = user.posts.map(post => {
+      return getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
+        .then(comments => post.comments = comments)
+    })
+    return promises
+  });
+
+  await executePromiseAll(commentPromises.flat())
+  
+  renderPage(users);
+}
+
+loadDataThenRender()
+
+
+
+// user.posts = posts
+// user.posts.forEach(async post => {
+//   let comment = []
+//   try {
+//     comment = await getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
+//   } catch (error) {
+//     console.log(error)
+//   }
+//   post.comments = comment
+// })
 
 // MOCK DATA - uncomment these lines to see the result
 
