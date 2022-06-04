@@ -1,0 +1,4 @@
+generator
+for of, 
+for in: log key của object
+spread operator
