@@ -9,7 +9,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
     <!-- jQuery library -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 
@@ -18,28 +21,142 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+
+    <title>Asignment</title>
   </head>
   <body>
-    <!-- A grey horizontal navbar that becomes vertical on small screens -->
-    <nav class="navbar navbar-expand-sm bg-light">
-      <!-- Links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link 3</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="container">
-      <h1>My First Bootstrap Page</h1>
-      <p>This is some text.</p>
-    </div>
+    <header>
+      <nav class="navbar bg-light">
+        <ul
+          class="navbar-nav justify-content-between align-item-baseline w-100 flex-row"
+        >
+          <li class="nav-item">
+            <a class="nav-link font-weight-bolder logo text-dark" href="#"
+              >Start Bootstrap</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary p-2" href="#" type="button"
+              >Sign In</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="section-1">
+        <span
+          >Build landing page for your business or project and gengerate more
+          leads</span
+        >
+        <form>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your email"
+          />
+          <input class="btn btn-primary" type="submit" value="Sign up!" />
+        </form>
+      </section>
+      <section class="section-2">
+        <div>
+          <i class="bi bi-display"></i>
+          <h3>Fully Responsive</h3>
+          <p>This theme will look great on any device, no matter the size</p>
+        </div>
+        <div>
+          <i class="bi bi-stack"></i>
+          <h3>Boostap 4 Ready</h3>
+          <p>Featuring the latest build of the new Boostrap 4 framework!</p>
+        </div>
+        <div>
+          <i class="bi bi-check-circle"></i>
+          <h3>Easy to Use</h3>
+          <p>
+            Ready to use with your own content, or customize the source files!
+          </p>
+        </div>
+      </section>
+      <section class="section-3">
+        <div>
+          <img src="./resources/bg-showcase-1.jpg" alt="" srcset="" />
+          <h3>Fully Responsive</h3>
+          <p>
+            When you use a theme created by Start Bootstrap , you know that the
+            theme will look great on any device , whether it's a phone , tablet
+            , or desktop the page will behave responsively !
+          </p>
+        </div>
+        <div>
+          <img src="./resources/bg-showcase-2.jpg" alt="" srcset="" />
+          <h3>Updated For Bootstrap</h3>
+          <p>
+            Newly improved , and full of great utility classes , Bootstrap 4 is
+            leading the way in mobile responsive web development ! All of the
+            themes on Start Bootstrap are now using Bootstrap 4 !
+          </p>
+        </div>
+        <div>
+          <img src="./resources/bg-showcase-3.jpg" alt="" srcset="" />
+          <h3>Easy to Use & Customize</h3>
+          <p>
+            Landing Page is just HTML and CSS with a splash of SCSS for users
+            who demand some deeper customization options . Out of the box , just
+            add your content and images , and your new landing page will be
+            ready to go !
+          </p>
+        </div>
+      </section>
+      <section class="section-4">
+        <h2>What people are saying...</h2>
+        <div>
+          <img src="./resources/testimonials-1.jpg" alt="" srcset="" />
+          <h5>Margaret E.</h5>
+          <small>"This is fantatic! Thanks so much guys"</small>
+        </div>
+        <div>
+          <img src="./resources/testimonials-2.jpg" alt="" srcset="" />
+          <h5>Fred S.</h5>
+          <small
+            >" Bootstrap is amazing. I've been using it to create lots of super
+            nice landing pages"</small
+          >
+        </div>
+        <div>
+          <img src="./resources/testimonials-3.jpg" alt="" srcset="" />
+          <h5>Sarah W.</h5>
+          <small
+            >" Thanks so much for making these free resources available to us !
+            "</small
+          >
+        </div>
+      </section>
+      <section class="section-5">
+        <h2>Ready to get started?</h2>
+        <h2>Sign up now!</h2>
+        <form>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your email"
+          />
+          <input class="btn btn-primary" type="submit" value="Sign up!" />
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <a href="">About</a>
+        <i class="bi bi-dot"></i>
+        <a href="">Contact</a>
+        <i class="bi bi-dot"></i>
+        <a href="">Terms of Use</a>
+        <i class="bi bi-dot"></i>
+        <a href="">Privacy Policy</a>
+      </div>
+      <small>Your Website 2019. All Rights Reserved.</small>
+    </footer>
   </body>
 </html>
