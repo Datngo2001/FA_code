@@ -16,18 +16,25 @@ function getNumber(str) {
     return result
 }
 
-function getNext(nextFile) {
-    fs.readFile(`./../numfiles/${nextFile}`, 'utf-8', function (err, data) {
-        if (err) {
-            console.log(result)
-            return
-        }
+function readFile(nextFile) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(`./../numfiles/${nextFile}`, 'utf-8', function (err, data) {
+            if (err) {
+                reject(err)
+            }
+            resolve(data)
+        });
+    })
+}
 
+function getNext(next) {
+    readFile(next).then(data => {
         const [nextFile, number] = getNumber(data)
         result += number
-
         getNext(nextFile)
-    });
+    }).catch(err => {
+        console.log(result)
+    })
 }
 
 getNext('1024')
