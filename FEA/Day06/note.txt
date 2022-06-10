@@ -1,0 +1,26 @@
+ngon khac thi chua khai báo , bien se có gia trị rác, còn js là undefine
+symbol
+typeof
+array và function là subtype của object
+undefine khác undeclare
+string là immutable không sửa được giá trị gốc của nó
+number 53 bits Number chưa các function xu lý number
+có thể chấm trực tiếp từ giá trị của number
+
+0.1 + 0.2 không bằng 0.3
+
+XEM LẠI CÁC so sánh number isNaN
+
+tham biến, tham trị: array thì thuong là tham chiều khi truyền
+
+native
+
+coercion
+
+falsy value: undefine, null, false, 0, NaN, ""
+
+cơ chế tự thêm dấu chấm phẩy
+
+hoisting
+
+lexical scope: closure

@@ -31,5 +31,3 @@ function getNext(nextFile) {
 }
 
 getNext('1024')
-
-console.log(result)

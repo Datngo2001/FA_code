@@ -16,18 +16,6 @@ function getNumber(str) {
     return result
 }
 
-function generatorRunner(func) {
-    let gen = func()
-    function _next(data) {
-        let yielded = gen.next(data)
-        if (!yielded.done) {
-            yielded.value.then(data => _next(data))
-        }
-    }
-
-    _next()
-}
-
 function readFile(nextFile) {
     return new Promise((resolve, reject) => {
         fs.readFile(`./../numfiles/${nextFile}`, 'utf-8', function (err, data) {
@@ -39,15 +27,29 @@ function readFile(nextFile) {
     })
 }
 
-async function getNext(next) {
-    try {
-        let data = await readFile(next)
+function* getNext(next) {
+    let isContinue = true
+    while (isContinue) {
+        let data = yield readFile(next).catch(() => { isContinue = false; })
+        if (data == undefined) return
         const [nextFile, number] = getNumber(data)
         result += number
-        getNext(nextFile)
-    } catch (error) {
-        console.log(result)
+        next = nextFile
     }
 }
 
-getNext('1024')
+function loadAll() {
+    let gen = getNext('1024')
+    function _next(data) {
+        let yielded = gen.next(data)
+        if (!yielded.done) {
+            yielded.value.then(data => _next(data))
+        } else {
+            console.log(result)
+        }
+    }
+
+    _next()
+}
+
+loadAll()
