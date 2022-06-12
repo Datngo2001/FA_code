@@ -46,23 +46,29 @@ function renderItems() {
 }
 
 function createOrderDiv(id, item) {
+    // tao the div 
     let div = document.createElement('div');
 
+    // tao cac nut
     let btnMinus = document.createElement('button');
     let btnPlus = document.createElement('button');
     let orderView = document.createElement('div');
 
+    // tao noi dung
     btnMinus.innerHTML = "-"
     btnPlus.innerHTML = "+"
     orderView.innerHTML = item.Order
 
+    // dinh dang
     btnMinus.style = "display: inline-block; width: 30%;"
     btnPlus.style = "display: inline-block; width: 33.33%;"
     orderView.style = "display: inline-block; width: 30%; text-align: center;"
 
+    // them su kien
     btnPlus.onclick = () => addOrder(id)
     btnMinus.onclick = () => reduceOrder(id)
 
+    // ket hop cac thanh phan
     div.append(btnMinus, orderView, btnPlus)
     return div;
 }
@@ -86,7 +92,7 @@ function renderTotal() {
     let list = itemList.filter(r => r.Order !== 0);
 
     let totalPrice = 0;
-    let pList = list.filter(r => r.Order !== 0).map(item => {
+    let pList = list.map(item => {
         totalPrice += (item.Order * item.price)
 
         let p = document.createElement('p');

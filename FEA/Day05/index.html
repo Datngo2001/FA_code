@@ -28,7 +28,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar bg-light">
+      <nav class="navbar bg-light px-4" id="navbar">
         <ul
           class="navbar-nav justify-content-between align-item-baseline w-100 flex-row"
         >
@@ -37,8 +37,8 @@
               >Start Bootstrap</a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-primary p-2" href="#" type="button"
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link btn btn-primary px-3" href="#" type="button"
               >Sign In</a
             >
           </li>
@@ -46,117 +46,177 @@
       </nav>
     </header>
     <main>
-      <section class="section-1">
-        <span
-          >Build landing page for your business or project and gengerate more
-          leads</span
-        >
+      <section
+        id="section-1"
+        class="section-1 d-flex flex-column justify-content-center"
+      >
+        <h1>
+          Build landing page for your business or project and gengerate more
+          leads!
+        </h1>
         <form>
           <input
             type="text"
-            class="form-control"
-            placeholder="Enter your email"
+            class="form-control form-control-lg mb-2"
+            placeholder="Enter your email..."
           />
-          <input class="btn btn-primary" type="submit" value="Sign up!" />
+          <input
+            class="btn btn-primary w-100 py-2"
+            type="submit"
+            value="Sign up!"
+          />
         </form>
       </section>
-      <section class="section-2">
-        <div>
-          <i class="bi bi-display"></i>
-          <h3>Fully Responsive</h3>
-          <p>This theme will look great on any device, no matter the size</p>
+      <section id="section-2" class="section-2 d-flex flex-column">
+        <div class="pb-5">
+          <i class="bi bi-display color-primary"></i>
+          <h2>Fully Responsive</h2>
+          <p>This theme will look great on any device, no matter the size!</p>
         </div>
-        <div>
-          <i class="bi bi-stack"></i>
-          <h3>Boostap 4 Ready</h3>
+        <div class="pb-5">
+          <i class="bi bi-stack color-primary"></i>
+          <h2>Boostap 4 Ready</h2>
           <p>Featuring the latest build of the new Boostrap 4 framework!</p>
         </div>
-        <div>
-          <i class="bi bi-check-circle"></i>
-          <h3>Easy to Use</h3>
+        <div class="">
+          <i class="bi bi-check-circle color-primary"></i>
+          <h2>Easy to Use</h2>
           <p>
             Ready to use with your own content, or customize the source files!
           </p>
         </div>
       </section>
-      <section class="section-3">
-        <div>
-          <img src="./resources/bg-showcase-1.jpg" alt="" srcset="" />
-          <h3>Fully Responsive</h3>
+      <section id="section-3" class="section-3">
+        <div class="showcase-img showcase-img-1 overflow-hidden">
+          <img
+            class="img-fluid w-100"
+            src="./resources/bg-showcase-1.jpg"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <div class="showcase showcase-1">
+          <h1>Fully Responsive Design</h1>
           <p>
             When you use a theme created by Start Bootstrap , you know that the
             theme will look great on any device , whether it's a phone , tablet
-            , or desktop the page will behave responsively !
+            , or desktop the page will behave responsively!
           </p>
         </div>
-        <div>
-          <img src="./resources/bg-showcase-2.jpg" alt="" srcset="" />
-          <h3>Updated For Bootstrap</h3>
+        <div class="showcase-img showcase-img-2 overflow-hidden">
+          <img
+            class="img-fluid w-100"
+            src="./resources/bg-showcase-2.jpg"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <div class="showcase showcase-2">
+          <h1>Updated For Bootstrap</h1>
           <p>
             Newly improved , and full of great utility classes , Bootstrap 4 is
             leading the way in mobile responsive web development ! All of the
-            themes on Start Bootstrap are now using Bootstrap 4 !
+            themes on Start Bootstrap are now using Bootstrap 4!
           </p>
         </div>
-        <div>
-          <img src="./resources/bg-showcase-3.jpg" alt="" srcset="" />
-          <h3>Easy to Use & Customize</h3>
+        <div class="showcase-img showcase-img-3 overflow-hidden">
+          <img
+            class="img-fluid w-100"
+            src="./resources/bg-showcase-3.jpg"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <div class="showcase showcase-3">
+          <h1>Easy to Use & Customize</h1>
           <p>
             Landing Page is just HTML and CSS with a splash of SCSS for users
             who demand some deeper customization options . Out of the box , just
             add your content and images , and your new landing page will be
-            ready to go !
+            ready to go!
           </p>
         </div>
       </section>
-      <section class="section-4">
-        <h2>What people are saying...</h2>
-        <div>
-          <img src="./resources/testimonials-1.jpg" alt="" srcset="" />
-          <h5>Margaret E.</h5>
-          <small>"This is fantatic! Thanks so much guys"</small>
-        </div>
-        <div>
-          <img src="./resources/testimonials-2.jpg" alt="" srcset="" />
-          <h5>Fred S.</h5>
-          <small
-            >" Bootstrap is amazing. I've been using it to create lots of super
-            nice landing pages"</small
-          >
-        </div>
-        <div>
-          <img src="./resources/testimonials-3.jpg" alt="" srcset="" />
-          <h5>Sarah W.</h5>
-          <small
-            >" Thanks so much for making these free resources available to us !
-            "</small
-          >
+      <section id="section-4" class="section-4">
+        <h2 class="text-center font-weight-bold">What people are saying...</h2>
+        <div class="d-flex flex-column">
+          <div class="people-info mt-5">
+            <img
+              class="avatar rounded-circle shadow"
+              src="./resources/testimonials-1.jpg"
+              alt=""
+              srcset=""
+            />
+            <h5>Margaret E.</h5>
+            <p>"This is fantatic! Thanks so much guys"</p>
+          </div>
+          <div class="people-info mt-5">
+            <img
+              class="avatar rounded-circle shadow"
+              src="./resources/testimonials-2.jpg"
+              alt=""
+              srcset=""
+            />
+            <h5>Fred S.</h5>
+            <p>
+              "Bootstrap is amazing. I've been using it to create lots of super
+              nice landing pages"
+            </p>
+          </div>
+          <div class="people-info mt-5">
+            <img
+              class="avatar rounded-circle shadow"
+              src="./resources/testimonials-3.jpg"
+              alt=""
+              srcset=""
+            />
+            <h5>Sarah W.</h5>
+            <p>
+              "Thanks so much for making these free resources available to us!"
+            </p>
+          </div>
         </div>
       </section>
-      <section class="section-5">
+      <section
+        id="section-5"
+        class="section-5 d-flex flex-column justify-content-center"
+      >
         <h2>Ready to get started?</h2>
         <h2>Sign up now!</h2>
         <form>
           <input
             type="text"
-            class="form-control"
-            placeholder="Enter your email"
+            class="form-control form-control-lg mb-2"
+            placeholder="Enter your email..."
           />
-          <input class="btn btn-primary" type="submit" value="Sign up!" />
+          <input
+            class="btn btn-primary w-100 py-2"
+            type="submit"
+            value="Sign up!"
+          />
         </form>
       </section>
     </main>
-    <footer>
+    <footer id="footer">
       <div>
-        <a href="">About</a>
-        <i class="bi bi-dot"></i>
-        <a href="">Contact</a>
-        <i class="bi bi-dot"></i>
-        <a href="">Terms of Use</a>
-        <i class="bi bi-dot"></i>
-        <a href="">Privacy Policy</a>
+        <div class="text-center mb-2">
+          <a href="">About</a>
+          <i class="bi bi-dot color-primary"></i>
+          <a href="">Contact</a>
+          <i class="bi bi-dot color-primary"></i>
+          <a href="">Terms of Use</a>
+          <i class="bi bi-dot color-primary"></i>
+          <a href="">Privacy Policy</a>
+        </div>
+        <small class="text-center d-block w-100 mb-2"
+          >Your Website 2019. All Rights Reserved.</small
+        >
       </div>
-      <small>Your Website 2019. All Rights Reserved.</small>
+      <div class="text-center brand">
+        <i class="bi bi-facebook color-primary"></i>
+        <i class="bi bi-twitter color-primary"></i>
+        <i class="bi bi-instagram color-primary"></i>
+      </div>
     </footer>
   </body>
 </html>

@@ -1,7 +1,257 @@
 .logo {
   font-size: x-large;
 }
+nav ul li .btn {
+  font-size: large;
+}
+
+/* ### Section 1 ### */
 .section-1 {
   background-image: url(./resources/bg-masthead.jpg);
   background-size: cover;
+  height: 90vh;
+  padding: 15px;
+}
+.section-1 h1 {
+  color: white;
+  text-align: center;
+}
+.section-1 input {
+  font-size: x-large;
+  font-weight: 450;
+}
+.section-1 .btn {
+  font-size: x-large;
+}
+
+/* ### Section 2 ### */
+.section-2 {
+  padding: 150px 30px;
+  text-align: center;
+}
+.section-2 i {
+  color: #007bff;
+  font-size: 7rem;
+}
+.section-2 h2 {
+  font-weight: bold;
+}
+.section-2 p {
+  font-size: x-large;
+  margin: 0;
+}
+
+/* ### Section 3 ### */
+.section-3 .showcase {
+  padding: 50px;
+}
+.section-3 .showcase h1 {
+  font-weight: bolder;
+}
+.section-3 .showcase p {
+  margin: 0;
+  font-size: x-large;
+  line-height: 1.5;
+  font-weight: 350;
+}
+.showcase-1 {
+  grid-area: showcase-1;
+}
+.showcase-2 {
+  grid-area: showcase-2;
+}
+.showcase-3 {
+  grid-area: showcase-3;
+}
+.showcase-img-1 {
+  grid-area: showcase-img-1;
+}
+.showcase-img-2 {
+  grid-area: showcase-img-2;
+}
+.showcase-img-3 {
+  grid-area: showcase-img-3;
+}
+
+/* ### Section 4 ### */
+.section-4 {
+  background-color: rgb(250, 250, 250);
+  overflow: hidden;
+  padding: 100px 50px;
+}
+.section-4 .people-info {
+  overflow: hidden;
+}
+.section-4 .people-info .avatar {
+  width: 70%;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.section-4 .people-info h5 {
+  text-align: center;
+}
+.section-4 .people-info p {
+  text-align: center;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ### Section 5 ### */
+.section-5 {
+  height: 50vh;
+  background-image: url(./resources/bg-masthead.jpg);
+  background-size: cover;
+  padding: 15px;
+}
+.section-5 h2 {
+  color: white;
+  text-align: center;
+}
+.section-5 input {
+  font-size: x-large;
+  font-weight: 450;
+}
+.section-5 .btn {
+  font-size: x-large;
+}
+
+footer {
+  height: 30vh;
+  padding: 60px 50px;
+}
+footer i {
+  color: #007bff;
+}
+footer .brand i {
+  font-size: xx-large;
+}
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px) {
+}
+
+/* PC: width >= 1024px */
+@media only screen and (min-width: 1024px) {
+  #navbar {
+    padding: 10px 250px !important;
+  }
+
+  #section-1 {
+    height: 60vh;
+    padding: 15px 250px;
+    align-items: center;
+  }
+  #section-1 h1 {
+    margin-bottom: 50px !important;
+  }
+  #section-1 form {
+    width: 70% !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: space-around;
+  }
+  #section-1 input,
+  .btn {
+    font-size: medium !important;
+  }
+  #section-1 input {
+    display: inline-block;
+    width: 70%;
+    margin: 0 !important;
+  }
+  #section-1 .btn {
+    display: inline-block;
+    width: 29% !important;
+  }
+
+  #section-2 {
+    padding: 100px 200px;
+    flex-direction: row !important;
+    justify-content: space-around;
+  }
+  #section-2 div {
+    width: 30%;
+  }
+  #section-2 i {
+    font-size: 5rem;
+  }
+  #section-2 h2 {
+    font-weight: bold;
+  }
+  #section-2 p {
+    font-weight: 400;
+    font-size: x-large;
+    margin: 0;
+  }
+
+  #section-3 {
+    display: grid;
+    grid-template-areas:
+      "showcase-1 showcase-img-1"
+      "showcase-img-2 showcase-2"
+      "showcase-3 showcase-img-3" !important;
+  }
+  #section-3 .showcase {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #section-3 .showcase h1,
+  p {
+    font-weight: bolder;
+  }
+
+  #section-4 div {
+    /* padding: 100px 50px; */
+    flex-direction: row !important;
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+  }
+  #section-4 .people-info {
+    width: 30%;
+  }
+
+  #section-5 {
+    height: 40vh;
+    padding: 15px 250px;
+    align-items: center;
+  }
+  #section-5 h1 {
+    margin-bottom: 50px !important;
+  }
+  #section-5 form {
+    width: 70% !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: space-around;
+  }
+  #section-5 input,
+  .btn {
+    font-size: medium !important;
+  }
+  #section-5 input {
+    display: inline-block;
+    width: 70%;
+    margin: 0 !important;
+  }
+  #section-5 .btn {
+    display: inline-block;
+    width: 29% !important;
+  }
+
+  #footer {
+    height: 20vh;
+    padding: 30px 150px;
+  }
+  #footer div:last-child {
+    float: right !important;
+  }
+  #footer div:first-child {
+    float: left !important;
+  }
+  #footer div:first-child small {
+    text-align: start !important;
+  }
 }

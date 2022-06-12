@@ -1,0 +1,2 @@
+reduce neu ko truyen gia tri khoi tao thì nó sẻ là giá trị của phan tu dau tien
+và bỏ qua phan tu do

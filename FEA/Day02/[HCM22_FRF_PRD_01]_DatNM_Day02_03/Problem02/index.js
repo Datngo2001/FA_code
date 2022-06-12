@@ -27,6 +27,8 @@ function renderPage(users) {
 
 // YOUR CODE HERE
 let users = []
+
+// tạo hàm lấy data bằng promise su dung URL
 function getDataPromise(url) {
   return new Promise((resolve, reject) => {
     $.get(url)
@@ -34,9 +36,12 @@ function getDataPromise(url) {
       .fail(err => reject(err))
   })
 }
+
+// lấy tất cả user
 getDataPromise('https://jsonplaceholder.typicode.com/users')
   .then(usersData => {
     users = usersData
+
     const promises = users.map((user, index) =>
       getDataPromise(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
         .then(posts => user.posts = posts)
@@ -44,7 +49,7 @@ getDataPromise('https://jsonplaceholder.typicode.com/users')
     return Promise.allSettled(promises)
   })
   .then(() => {
-    let promises = []
+    const promises = []
     users.forEach(user => {
       user.posts.forEach(post => {
         const promise = getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
@@ -55,8 +60,8 @@ getDataPromise('https://jsonplaceholder.typicode.com/users')
     return Promise.allSettled(promises)
   })
   .then(() => renderPage(users))
-  .catch(err => {
-    console.log(err)
+  .catch(e => {
+    console.log(e)
   })
 
 

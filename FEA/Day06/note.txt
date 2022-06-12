@@ -22,5 +22,6 @@ falsy value: undefine, null, false, 0, NaN, ""
 cơ chế tự thêm dấu chấm phẩy
 
 hoisting
+luu ý: b = 123 thì b có thể xài trong fuctnion và ngoài fuction (ko dùng, ko xài dc trong strict mode) 
 
 lexical scope: closure

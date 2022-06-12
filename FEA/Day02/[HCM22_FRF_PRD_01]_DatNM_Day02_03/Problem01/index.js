@@ -29,24 +29,41 @@ function renderPage(users) {
 
 // Problem 1:
 
+// let users = []
+// $.get('https://jsonplaceholder.typicode.com/users', (res) => {
+//   users = res
+//   users.forEach((user, userIndex) => {
+//     $.get(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`, (posts) => {
+//       let userPosts = posts
+//       users[userIndex].posts = userPosts
+//       users[userIndex].posts.forEach((post, postIndex) => {
+//         $.get(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`, (comments) => {
+//           let postComments = comments
+//           users[userIndex].posts[postIndex].comments = postComments
+//           renderPage(users)
+//         })
+//       })
+//     })
+//   });
+// })
+
+
 let users = []
-$.get('https://jsonplaceholder.typicode.com/users', (res) => {
-  users = res
-  users.forEach((user, userIndex) => {
-    $.get(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`, (posts) => {
-      let userPosts = posts
-      users[userIndex].posts = userPosts
-      users[userIndex].posts.forEach((post, postIndex) => {
-        $.get(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`, (comments) => {
-          let postComments = comments
-          users[userIndex].posts[postIndex].comments = postComments
+
+$.get("https://jsonplaceholder.typicode.com/users", data => {
+  users = data
+  users.forEach(user => {
+    $.get(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`, posts => {
+      user.posts = posts
+      posts.forEach(post => {
+        $.get(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`, comments => {
+          post.comments = comments
           renderPage(users)
         })
       })
     })
   });
 })
-
 
 
 
