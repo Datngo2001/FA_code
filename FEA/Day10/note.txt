@@ -1,0 +1,2 @@
+js là ngôn ngữ đồng bộ
+su dung promise de tranh call back hell

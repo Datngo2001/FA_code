@@ -9015,7 +9015,7 @@ function problem01() {
 
 function problem02() {
   // return an array of user which is male and age is under 40
-  return users.filter(user => user.age < 40)
+  return users.filter(user => user.age < 40 && user.gender == 'Male')
 }
 
 function problem03() {
@@ -9023,85 +9023,186 @@ function problem03() {
   return users.map(user => `${user.first_name} ${user.last_name}`)
 }
 
-function toCamelCase(input) {
-  if (typeof input != "string") {
-    return ""
-  }
 
-  let words = input.split("_")
-  words = words.map((word, index) => {
-    if (index == 0) {
-      return word
-    }
-    let chars = word.split("")
-    chars[0] = chars[0].toUpperCase()
-    return chars.join("")
-  })
-
-  return words.join("");
-}
 
 function problem04() {
   // return new array of user where the key of each record in new array is camelCase
-  return users.map(user => {
+  function toCamelCase(input) {
+    if (typeof input != "string") {
+      return ""
+    }
 
+    let words = input.split("_")
+    words = words.map((word, index) => {
+      if (index == 0) {
+        return word
+      }
+      let chars = word.split("")
+      chars[0] = chars[0].toUpperCase()
+      return chars.join("")
+    })
+
+    return words.join("");
+  }
+
+  return users.map(user => {
+    let keys = Object.keys(user)
+    let newAndOldKeys = keys.map(key => ({ new: toCamelCase(key), old: key }))
+    newAndOldKeys.forEach(key => {
+      if (key.new == key.old) {
+        return;
+      }
+      user[key.new] = user[key.old]
+      delete user[key.old]
+    })
+    return user
   })
 }
 
 function problem05() {
   // return the average age in users
+  let total = users.reduce((acc, user) => (acc += user.age), 0)
+  return total / users.length
 }
 
 function problem0601() {
   // return an array of full name using Array.prototype.reduce
+  return users.reduce((acc, user) => {
+    acc.push(`${user.first_name} ${user.last_name}`)
+    return acc
+  }, [])
 }
 
 function problem0602() {
   // return an array of user which is male and age under 40 using Array.prototype.reduce
+  return users.reduce((acc, user) => {
+    if (user.age < 40 && user.gender == 'Male') {
+      acc.push(user)
+    }
+    return acc
+  }, [])
 }
 
 function problem0603() {
   // return new array where each record is in camelCase using Array.prototype.reduce
+  function toCamelCase(input) {
+    if (typeof input != "string") {
+      return ""
+    }
+
+    let words = input.split("_")
+    words = words.map((word, index) => {
+      if (index == 0) {
+        return word
+      }
+      let chars = word.split("")
+      chars[0] = chars[0].toUpperCase()
+      return chars.join("")
+    })
+
+    return words.join("");
+  }
+  return users.reduce((acc, user) => {
+    let keys = Object.keys(user)
+    let newAndOldKeys = keys.map(key => ({ new: toCamelCase(key), old: key }))
+    newAndOldKeys.forEach(key => {
+      if (key.new == key.old) {
+        return;
+      }
+      user[key.new] = user[key.old]
+      delete user[key.old]
+    })
+    acc.push(user)
+    return acc
+  }, [])
 }
 
 function problem07() {
   // return the sorted array of user (sort by field first_name in ascending order)
+  return users.sort((a, b) => {
+    if (a.first_name > b.first_name) {
+      return 1 // b is sorted before a
+    } else {
+      return -1 // a is sorted before b
+    };
+  })
 }
 
 function faMap(array, fn) {
   // implement faMap that works like Array.prototype.map
+  let result = []
+  array.forEach((element, index, array) => {
+    result.push(fn(element, index, array))
+  });
+  return result;
 }
 
 function faFilter(array, predicate) {
   // implement faMap that works like Array.prototype.filter
+  let result = []
+  array.forEach((element, index, array) => {
+    if (fn(element, index, array)) {
+      result.push(element)
+    }
+  });
+  return result;
 }
 
 function faReduce(array, fn, defaultValue) {
   // implement faReduce that works like Array.prototype.reduce
+  let acc = defaultValue
+  array.forEach((element, index, array) => {
+    acc = fn(acc, element, index, array)
+  });
+  return acc;
 }
 
 function problem1101(array, fn) {
   // map array using faReduce
+  return faReduce(array, (acc, item, index, arr) => {
+    acc.push(fn(item, index, arr))
+    return acc
+  }, [])
 }
 
 function problem1102(array, fn) {
   // filter array using faReduce
+  return faReduce(array, (acc, item, index, arr) => {
+    if (fn(item, index, arr)) {
+      acc.push(item)
+    }
+    return acc
+  }, [])
 }
 
 function problem1201(array) {
   // implement sum array with faReduce
+  return faReduce(array, (acc, item) => {
+    return acc + item
+  }, 0)
 }
 
 function problem1202(array) {
   // implement product array with faReduce
+  return faReduce(array, (acc, item) => {
+    return acc * item
+  }, 0)
 }
 
 function problem1203(array) {
   // implement reverse array with faReduce
+  return faReduce(array, (acc, item) => {
+    acc.unshift(item)
+    return acc
+  }, [])
 }
 
 function getProp(obj, path) {
   // use Array.prototype.reduce
+  let steps = path.split(".")
+  faReduce(steps, (acc, step) => {
+    return acc[step]
+  }, obj)
 }
 
 var student = {
