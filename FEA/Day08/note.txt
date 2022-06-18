@@ -1,0 +1,7 @@
+before es6 prototype for oop
+new Something() thi Something co the la function
+this thay doi theo context
+đừng để mất context dùng .call()
+lưu ý khi dùng this với arrow function
+
+function sum(...rest)

@@ -1,0 +1,4 @@
+set chứa các phần tử ko trung lặp
+symbol dùng để chặn các field (hiding data)
+map có thể chứa được key là chính xác dữ liệu truyền vào hàm get
+object ko là dc nhu v vì key của object bắt buộc là stringz
