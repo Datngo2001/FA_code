@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 #slider {
   max-width: 800px;
   height: 40vh;
@@ -32,14 +35,34 @@
 }
 #products .card .order-input {
   display: inline-flex;
-  align-items: center;
+  align-items: stretch;
   max-width: 50%;
 }
-#products .card .order-input .
-#products .card .order-input .order-number {
-  display: inline;
-  margin: 0;
-  padding: 0 15px;
-  line-height: 100%;
-  vertical-align: middle;
+#products .card .order-input .order-add {
+  border: 1px solid #ced4da;
+  border-left: none;
+  flex: 1;
 }
+#products .card .order-input .order-minus {
+  border: 1px solid #ced4da;
+  border-right: none;
+  flex: 1;
+}
+#products .card .order-input i {
+  color: rgb(39, 39, 178);
+  font-weight: bolder;
+}
+#products .card .order-input .order-number {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #ced4da;
+  border-left: none;
+  border-right: none;
+}
+#products .ratting {
+  background-color: #f3f3f3;
+  border-top: 1px solid #ced4da;
+  font-size: smaller;
+}
+
+
