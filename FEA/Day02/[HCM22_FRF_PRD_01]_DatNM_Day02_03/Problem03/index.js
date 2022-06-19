@@ -45,57 +45,35 @@ async function executePromiseAll(promises) {
 }
 
 // Begin get data
-// async function loadDataThenRender() {
-//   try {
-//     users = await getDataPromise("https://jsonplaceholder.typicode.com/users")
-//   } catch (error) {
-//     console.log(error)
-//   }
-
-//   const postPromise = users.map(user => {
-//     return getDataPromise(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
-//       .then(posts => user.posts = posts)
-//   });
-
-//   await executePromiseAll(postPromise)
-
-//   const commentPromises = users.map(user => {
-//     let promises = user.posts.map(post => {
-//       return getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
-//         .then(comments => post.comments = comments)
-//     })
-//     return promises
-//   });
-
-//   await executePromiseAll(commentPromises.flat())
-
-//   renderPage(users);
-// }
-
-// loadDataThenRender()
-
-
-
-let arr = [10, 20, 30, 40, 50]
-
-arr.forEach((item, index) => {
-  if (item != 30) {
-    console.log(`arr[${index}] = ${item}`);
-  } else {
-    console.log("không khac 30")
+async function loadDataThenRender() {
+  try {
+    users = await getDataPromise("https://jsonplaceholder.typicode.com/users")
+  } catch (error) {
+    console.log(error)
   }
-})
 
-// user.posts = posts
-// user.posts.forEach(async post => {
-//   let comment = []
-//   try {
-//     comment = await getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
-//   } catch (error) {
-//     console.log(error)
-//   }
-//   post.comments = comment
-// })
+  const postPromise = users.map(user => {
+    return getDataPromise(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`)
+      .then(posts => user.posts = posts)
+  });
+
+  await executePromiseAll(postPromise)
+
+  const commentPromises = users.map(user => {
+    let promises = user.posts.map(post => {
+      return getDataPromise(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
+        .then(comments => post.comments = comments)
+    })
+    return promises
+  });
+
+  await executePromiseAll(commentPromises.flat())
+
+  renderPage(users);
+}
+
+loadDataThenRender()
+
 
 // MOCK DATA - uncomment these lines to see the result
 

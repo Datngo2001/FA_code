@@ -1,4 +1,11 @@
-let map = { one: true, two: true, ["hasOwnProperty"]: true };
+let map = { one: true, two: true, hasOwnProperty: true };
 
-console.log(map.hasOwnProperty.call('one'));
-console.log(map["hasOwnProperty"]);
+let obj = {
+    has: (prop) => {
+        console.log(this)
+        console.log(prop)
+        return this.hasOwnProperty(prop)
+    }
+}
+
+console.log(obj.has.call(map, "one"));
