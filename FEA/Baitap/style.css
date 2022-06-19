@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 #slider {
   max-width: 800px;
   height: 40vh;
@@ -26,17 +27,28 @@
   max-width: 800px;
   margin: auto;
   margin-top: 20px;
+  display: flex;
+  row-gap: 5%;
+  column-gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#products .card {
+  flex-basis: 30%;
+  margin-bottom: 20px;
 }
 
 #products .card .order {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  justify-content: space-between;
 }
 #products .card .order-input {
   display: inline-flex;
   align-items: stretch;
-  max-width: 50%;
+  width: 50%;
+  flex-wrap: nowrap;
 }
 #products .card .order-input .order-add {
   border: 1px solid #ced4da;
@@ -65,4 +77,20 @@
   font-size: smaller;
 }
 
-
+#notify {
+  visibility: hidden;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transition: 0.5s;
+}
+#notify h6 {
+  padding: 10px;
+  background-color: #19e932;
+  opacity: 0.9;
+  border-radius: 5px;
+  color: white;
+  margin: 0;
+  position: relative;
+  left: -50%;
+}
