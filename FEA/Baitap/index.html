@@ -73,7 +73,39 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="products"></div>
+      <div id="products">
+        <div class="card" style="width: 18rem">
+          <img src="./asset/placeholder.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h4 class="card-title">Sản phẩm 1</h4>
+            <strong>$24.99</strong>
+            <p class="card-text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book.
+            </p>
+            <div class="order">
+              <div class="input-group order-input">
+                <button
+                  class="btn btn-outline-secondary order-minus"
+                  type="button"
+                >
+                  +
+                </button>
+                <span class="order-number">0</span>
+                <button
+                  class="btn btn-outline-secondary order-add"
+                  type="button"
+                >
+                  -
+                </button>
+              </div>
+              <button class="btn btn-primary order-addCart">Thêm</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./index.js"></script>
   </body>

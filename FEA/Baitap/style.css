@@ -18,3 +18,28 @@
   height: inherit;
   object-fit: fill;
 }
+
+#products {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#products .card .order {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+#products .card .order-input {
+  display: inline-flex;
+  align-items: center;
+  max-width: 50%;
+}
+#products .card .order-input .
+#products .card .order-input .order-number {
+  display: inline;
+  margin: 0;
+  padding: 0 15px;
+  line-height: 100%;
+  vertical-align: middle;
+}
