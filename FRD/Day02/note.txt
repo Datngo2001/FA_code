@@ -1,0 +1,2 @@
+script tag: defer
+khong được cập nhật state trực 
