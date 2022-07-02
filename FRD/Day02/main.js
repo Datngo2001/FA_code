@@ -1,102 +1,100 @@
 let appContainer = document.getElementById('app')
 
-class HelloComponent extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>Hello {this.props.name} !! </h1>
-                <div>{this.props.children}</div>
-            </div>
-        )
-    }
-}
-
-function PragraphComponent() {
-    return (<p>"I wanna to be a developer"</p>)
-}
-
-class CounterComponent extends React.Component {
+class App extends React.Component {
     constructor() {
         super()
-        this.state = { count: 0 }
-        this.increaserCounter = this.increaserCounter.bind(this)
-    }
-
-    increaserCounter() {
-        // this.setState({
-        //     count: this.state.count + 1
-        // })
-        this.setState((prev, props) => {
-            return {
-                count: prev.count + 1
+        this.state = {
+            todolist: [],
+            inputs: {
+                job: ""
             }
-        })
+        }
+        this.handleAdd = this.handleAdd.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleTodoClick = this.handleTodoClick.bind(this)
     }
 
-    render() {
-        return (
-            <div>
-                {
-                    this.state.count > 0 ? (
-                        <h1>You clicked {this.state.count} times</h1>
-                    ) : (
-                        <h1>You have'nt clicked yet</h1>
-                    )
-                }
-                <button onClick={this.increaserCounter}>Click me!</button>
-            </div>
-        )
-    }
-}
-
-class ListUser extends React.Component {
-    render() {
-        return <div>
-            <h1>My user list</h1>
-            {
-                this.props.list ? (
-                    this.props.list.map(name => <p key={name}>{name}</p>)
-                ) : (
-                    <p>There is no user</p>
-                )
-            }
-        </div >
-    }
-}
-
-class Selector extends React.Component {
-    constructor() {
-        super()
-        this.state = { currnentItem: "" }
-        this.setCurrentItem = this.setCurrentItem.bind(this)
-    }
-
-    setCurrentItem(e) {
-        let selected = e.target.value
+    handleInputChange(e) {
+        let name = e.target.name
+        let value = e.target.value
         this.setState(val => {
-            val.currnentItem = selected
+            val.inputs[name] = value
             return val
         })
     }
 
+    handleAdd(e) {
+        e.preventDefault()
+
+        this.setState(val => {
+            if (val.inputs.job == "") {
+                return val
+            }
+            val.todolist.push({ name: val.inputs.job, isCompeted: false })
+            val.inputs.job = ""
+            return val
+        })
+    }
+
+    handleTodoClick(index) {
+        return () => {
+            this.setState(val => {
+                if (!val.todolist[index]) {
+                    return val
+                }
+                val.todolist[index].isCompeted = !val.todolist[index].isCompeted
+                return val
+            })
+        }
+    }
+
+    handleTodoRemove(index) {
+        return () => {
+            this.setState(val => {
+                val.todolist = val.todolist.filter((item, i) => i != index)
+                return val
+            })
+        }
+    }
+
     render() {
         return (
-            <div>
-                <select onChange={this.setCurrentItem}>
-                    {this.props.items ? (
-                        this.props.items.map(item => <option key={item}>{item}</option>)
-                    ) : (
-                        <></>
-                    )}
-                </select>
-                <p>You selected: {this.state.currnentItem}</p>
+            <div className="w-75 mw-100 m-auto mt-3 ">
+                <form className="row justify-content-between mb-3" onSubmit={this.handleAdd}>
+                    <div className="col-10">
+                        <input value={this.state.inputs.job} onChange={this.handleInputChange} name="job" type="text" className="form-control" placeholder="To do" ></input>
+                    </div>
+                    <div className="col-2">
+                        <button type="submit" className="btn btn-primary w-100 h-100">+</button>
+                    </div>
+                </form>
+                {this.state.todolist.map((item, index) => {
+                    return (
+                        <TodoComponent key={index} data={item} handleRemove={this.handleTodoRemove(index)} handleClick={this.handleTodoClick(index)}></TodoComponent>
+                    )
+                })}
+            </div>
+
+        )
+    }
+}
+
+
+class TodoComponent extends React.Component {
+    constructor() {
+        super()
+    }
+
+    render() {
+        return (
+            <div onClick={this.props.handleClick} className={`alert alert-${this.props.data.isCompeted ? "success" : "primary"} alert-dismissible`}>
+                <span>{this.props.data.name}</span>
+                <button onClick={this.props.handleRemove} type="button" className="btn-close" aria-label="Close"></button>
             </div>
         )
     }
 }
 
 ReactDOM.render(
-    <div>
-        <Selector items={["Toyota", "Masda", "Huydai"]} />
-    </div>
+    <App></App>
     , appContainer)
