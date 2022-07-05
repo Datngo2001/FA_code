@@ -1,0 +1,4 @@
+arrow fucntion keep the original this value 
+every hook must be declare before the returning of JSX
+userEffect bo trong thi se chay bat cu khi nao
+React.memo: render component when props change
