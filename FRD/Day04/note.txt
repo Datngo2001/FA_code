@@ -1,3 +1,5 @@
 getSnapshotBeforeUpdate
 
 BEM css structure
+
+eval in js

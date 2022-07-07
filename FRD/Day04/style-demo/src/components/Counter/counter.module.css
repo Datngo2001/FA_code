@@ -1,0 +1,12 @@
+.button{
+    padding: 20px;
+}
+
+.result{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.wrapper{
+    display: inline-block;
+}

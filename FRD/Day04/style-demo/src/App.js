@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import styled, { keyframes } from "styled-components"
+import Counter from './components/Counter/Counter';
+import LoadingButton from './components/LoadingButton';
+
+const keyframe = keyframes`
+  0%{
+    background-color: lightblue;
+  }
+
+  50%{
+    background-color: green;
+  }
+
+  100%{
+    background-color: red;
+  }
+`
+
+const RedButton = styled.button`
+  background-color: red;
+  &:hover{
+    background-color: green;
+  }
+  animation: ${keyframe} 2s infinite;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LoadingButton>Click here</LoadingButton>
   );
 }
 
