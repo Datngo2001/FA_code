@@ -1,0 +1,11 @@
+.header{
+ display: flex;
+ justify-content: space-around;
+ padding: 10px;
+}
+.nav-bar{
+    background-color: rgb(70, 228, 26);
+}
+.active{
+    background-color: rgb(228, 26, 26);
+}
