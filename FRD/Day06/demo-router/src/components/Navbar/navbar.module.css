@@ -1,11 +1,17 @@
-.header{
+.navbar{
  display: flex;
  justify-content: space-around;
  padding: 10px;
+ font-size: 1.5rem;
 }
-.nav-bar{
-    background-color: rgb(70, 228, 26);
+.navbar a{
+    text-decoration: none;
+    padding: 5px 15px;
+}
+.normal{
+    
 }
 .active{
+    color: white;
     background-color: rgb(228, 26, 26);
 }

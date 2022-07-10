@@ -1,2 +1,6 @@
 History.PushState() ghi lich su vao trinh duyet
 Pass callback to className
+Switch router
+navlink co isActive
+useSearchParams
+replace in Navigate ko ghi lich su trinh duyet
