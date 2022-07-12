@@ -1,7 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
 import { useState } from 'react';
 import Modal from './components/Modal/Modal';
+import styles from './app.module.css'
 
 function App() {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,8 +14,9 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <button onClick={openModal} style={{ "marginTop": "100px" }}> Open modal </button>
+    <div className={styles.app}>
+      <h1>Welcome to react portals!</h1>
+      <button onClick={openModal}> Open modal </button>
       {isOpen ? (
         <Modal close={closeModal} title={"Login"}></Modal>
       ) : <></>}

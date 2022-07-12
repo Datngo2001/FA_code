@@ -42,12 +42,7 @@
         opacity: 1;
     }
 }
-.modal button{
-    font-size: 1.2rem;
-    border: 1px solid rgba(209, 209, 209, 0.5);
-    border-radius: 10px;
-    cursor: pointer;
-}
+
 .header{
     display: flex;
     flex-direction: row;
