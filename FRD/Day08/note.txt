@@ -1,0 +1,5 @@
+telnet: remote vps
+
+cors noi backend
+
+abort controller 
