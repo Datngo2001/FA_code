@@ -1,35 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import User from "../components/User/User";
+import api from "../services";
+import { Link } from "react-router-dom";
 
 function UserPage() {
-  const { id } = useParams();
+  const { userId } = useParams();
   const [user, setUser] = useState({});
+  const [posts, setPosts] = useState([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    getUser(id);
-  }, [id]);
-
-  function getUser(id) {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+    Promise.allSettled([getUser(userId), getPost(userId)])
       .then((res) => {
-        if (!res.ok) {
-          setError(true);
-          return null;
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (!data) {
-          return null;
-        }
-        setUser(() => data);
+        setUser(() => res[0].value.data);
+        setPosts(() => res[1].value.data);
       })
       .catch((err) => console.log(err));
+  }, [userId]);
+
+  function getUser(userId) {
+    return api.get(`/users/${userId}`).catch((err) => {
+      setError(true);
+      console.log(err);
+    });
   }
 
-  return <div>{error ? "404" : <User user={user}></User>}</div>;
+  function getPost(userId) {
+    return api.get(`/users/${userId}/posts`).catch((err) => {
+      setError(true);
+      console.log(err);
+    });
+  }
+
+  return (
+    <div>
+      <div>{error ? "404" : <User user={user}></User>}</div>
+      <div>
+        {posts.map((post) => (
+          <Link
+            style={{ display: "block", margin: "40px" }}
+            to={`/posts/${post.id}`}
+          >
+            {post.title}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default UserPage;
