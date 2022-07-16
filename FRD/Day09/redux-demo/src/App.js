@@ -1,20 +1,24 @@
-import { useState } from 'react';
+import logo from './logo.svg';
 import './App.css';
-import ThemeSection from './components/ThemeSection';
-import ThemeSectionClass from './components/ThemeSectionClass';
-import ThemeSectionConsumer from './components/ThemeSectionConsumer';
-import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="App">
-        <h1>Contex demo</h1>
-        <ThemeSection></ThemeSection>
-        <ThemeSectionClass></ThemeSectionClass>
-        <ThemeSectionConsumer />
-      </div>
-    </ThemeProvider>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
