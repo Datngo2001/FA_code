@@ -1,10 +1,20 @@
+import { useState } from 'react';
 import './App.css';
+import ThemeSection from './components/ThemeSection';
+import ThemeSectionClass from './components/ThemeSectionClass';
+import ThemeSectionConsumer from './components/ThemeSectionConsumer';
+import { ThemeContext, ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <h1>Contex demo</h1>
+        <ThemeSection></ThemeSection>
+        <ThemeSectionClass></ThemeSectionClass>
+        <ThemeSectionConsumer />
+      </div>
+    </ThemeProvider>
   );
 }
 
