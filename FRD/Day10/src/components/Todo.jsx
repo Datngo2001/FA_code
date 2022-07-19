@@ -1,13 +1,24 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import api from "../api/_axios";
 
-import { addTodo, removeTodo } from "../store/todo/todoActions";
+import {
+  addTodo,
+  createTodo,
+  fetchTodo,
+  removeTodo,
+} from "../store/todo/todoActions";
 
 function Todo() {
   const [content, setContent] = useState("");
-  const todoList = useSelector((state) => state.todo);
+  const { loading, list, error } = useSelector((state) => state.todo);
   const { logined } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodo());
+  }, []);
 
   const handleInput = (event) => {
     setContent(event.target.value);
@@ -22,12 +33,14 @@ function Todo() {
   const addTodoList = () => {
     if (!content) return;
 
-    dispatch(addTodo({ description: content }));
+    dispatch(createTodo({ description: content, done: false }));
     setContent("");
   };
+
   const handleRemoveTodo = (id) => {
     dispatch(removeTodo({ id }));
   };
+
   return (
     <div>
       <div className="control-group">
@@ -45,7 +58,7 @@ function Todo() {
         </button>
       </div>
       <div>
-        {todoList.map((todo) => (
+        {list.map((todo) => (
           <div key={todo.id}>
             <p>Task: {todo.description}</p>
             <p>Done: {String(todo.done)}</p>
@@ -55,6 +68,8 @@ function Todo() {
             <hr />
           </div>
         ))}
+        {loading && <div>Loading...</div>}
+        {error && <div>Error: {error.message}</div>}
       </div>
     </div>
   );
