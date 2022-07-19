@@ -8,18 +8,22 @@ export function searchUser({
 }) {
     return new Promise((res, rej) => {
         let result = []
+        let totalPage = 0
         try {
             if (query === "") {
                 result = data
             } else {
                 result = search(query)
             }
-            result = sort(result, sortBy)
+            totalPage = result.length / limit
+            sort(result, sortBy)
             result = paginate(result, page, limit)
         } catch (error) {
             rej(error)
         }
-        res(result)
+
+        debugger
+        res({ data: JSON.parse(JSON.stringify(result)), totalPage })
     })
 }
 
@@ -36,10 +40,18 @@ function search(query) {
 
 function paginate(data, page, limit) {
     const beginIndex = (page - 1) * limit
-    const result = data.slice(beginIndex, limit)
+    const endIndex = beginIndex + limit
+    const result = data.slice(beginIndex, endIndex)
     return result
 }
 
 function sort(data, sortBy) {
-    return data.sort((a, b) => (a[sortBy] > b[sortBy]))
+    data.sort((a, b) => {
+        if (a[sortBy] < b[sortBy]
+        ) {
+            return -1;
+        }
+
+        return 0;
+    })
 }

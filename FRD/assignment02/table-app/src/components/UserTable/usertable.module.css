@@ -1,0 +1,23 @@
+.table-container{
+    overflow-x: auto ;
+    margin: 5px;
+}
+.tool-bar{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 5px;
+}
+.search-container{
+    flex-grow: 1;
+}
+.sortbox-container{
+    flex-basis: 200px;
+}
+.pagination-container{
+    margin:auto;
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
