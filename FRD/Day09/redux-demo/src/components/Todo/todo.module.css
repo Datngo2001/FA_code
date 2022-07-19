@@ -1,0 +1,8 @@
+.form{
+    display: flex;
+    gap: 5px;
+}
+.todo-container{
+    margin-top: 20px;
+}
+
