@@ -1,27 +1,16 @@
 {
   "todos": [
     {
-      "description": "Buy a new car",
+      "description": "datngo 2",
       "done": false,
-      "createdAt": 1658163134333,
+      "createdAt": 1658382263242,
+      "id": 1
+    },
+    {
+      "description": "asdas 2",
+      "done": false,
+      "createdAt": 1658382307597,
       "id": 2
-    },
-    {
-      "description": "Create a CV",
-      "done": true,
-      "createdAt": 1658163200942,
-      "id": 3
-    },
-    {
-      "description": "Earn 1000000$ before 30",
-      "done": false,
-      "createdAt": 1658168906157,
-      "id": 4
-    },
-    {
-      "description": "asdasd",
-      "createdAt": 1658237148564,
-      "id": 5
     }
   ]
 }

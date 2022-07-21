@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import api from "../api/_axios";
+import { updateTodo } from "../store/todo/todoActions";
 
 import {
   addTodo,
@@ -14,6 +14,10 @@ function Todo() {
   const [content, setContent] = useState("");
   const { loading, list, error } = useSelector((state) => state.todo);
   const { logined } = useSelector((state) => state.user);
+  const [editing, setEditing] = useState({
+    isEditing: false,
+    currentTodo: null,
+  });
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,6 +45,25 @@ function Todo() {
     dispatch(removeTodo({ id }));
   };
 
+  const handleBeginEdit = (todo) => {
+    return () => {
+      setEditing(() => ({
+        isEditing: true,
+        currentTodo: todo,
+      }));
+      setContent(() => todo.description);
+    };
+  };
+
+  const handleSaveEdit = () => {
+    dispatch(updateTodo({ ...editing.currentTodo, description: content }));
+    setEditing(() => ({
+      isEditing: false,
+      currentTodo: null,
+    }));
+    setContent(() => "");
+  };
+
   return (
     <div>
       <div className="control-group">
@@ -53,13 +76,19 @@ function Todo() {
           onChange={handleInput}
           onKeyDown={handleKeyDown}
         />
-        <button className="add" onClick={addTodoList}>
-          Add
-        </button>
+        {editing.isEditing ? (
+          <button className="add" onClick={handleSaveEdit}>
+            Save
+          </button>
+        ) : (
+          <button className="add" onClick={addTodoList}>
+            Add
+          </button>
+        )}
       </div>
       <div>
         {list.map((todo) => (
-          <div key={todo.id}>
+          <div key={todo.id} onDoubleClick={handleBeginEdit(todo)}>
             <p>Task: {todo.description}</p>
             <p>Done: {String(todo.done)}</p>
             {logined && (

@@ -1,4 +1,4 @@
-import api from "./_axios";
+import api from "./baseapi"
 
 export function fetchTodo() {
     return api.get('/todos')
@@ -9,6 +9,9 @@ export function createTodo(payload) {
 }
 
 export function removeTodo(id) {
-    console.log(id)
     return api.delete(`/todos/${id}`)
+}
+
+export function updateTodo(payload) {
+    return api.put(`/todos/${payload.id}`, payload)
 }
