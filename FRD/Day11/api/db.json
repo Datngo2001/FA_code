@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "email": "nam@gmail.com",
+      "password": "$2a$10$WVIkg9vUZXENUUHP7oRtG.Y/wWknFqOgtZ9FQIWsFXKZxoelByNXe",
+      "name": "Nguyen Van Nam",
+      "createdAt": 1658250431897,
+      "id": 1
+    }
+  ],
+  "todos": [
+    {
+      "description": "Learn React",
+      "done": false,
+      "createdAt": 1658239630639,
+      "id": 1
+    }
+  ]
+}
