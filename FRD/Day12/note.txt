@@ -1,0 +1,5 @@
+input controll
+information component
+navigation component
+container
+AEM
