@@ -1,0 +1,7 @@
+.app-container{
+    width: 800px;
+    max-width: 100%;
+    padding: 40px;
+    margin: auto;
+    height: 100vh;
+}

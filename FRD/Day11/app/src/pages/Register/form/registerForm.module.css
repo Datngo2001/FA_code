@@ -1,0 +1,18 @@
+.form-group{
+    display: flex;
+    margin-top: 5px;
+    gap: 5px;
+} 
+
+.form-group label{
+    flex-basis: 100px;
+}
+
+.form-submit{
+    justify-content: right;
+}
+
+.error{
+    font-size: 0.75rem;
+    color: red;
+}

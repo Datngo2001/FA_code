@@ -1,0 +1,13 @@
+.form-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.p-register{
+    text-align: left;
+}
+.p-error{
+    color: red;
+}
