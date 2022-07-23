@@ -11,6 +11,11 @@
       "email": "nam@gamail.com",
       "password": "$2a$10$CBx56VhW71KeCOdO2M8ffu3ikRh34uyaGa2zD04d9XzCVb8OXUW4y",
       "id": 2
+    },
+    {
+      "email": "ngominhdat110115@gmail.com",
+      "password": "$2a$10$DSj.Hjw3hC8hDC.DzSib8en.9bjwXhxvLnKJr3GkDvl1LeW1VOMr6",
+      "id": 3
     }
   ],
   "todos": [
