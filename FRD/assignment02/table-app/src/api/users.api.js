@@ -22,7 +22,6 @@ export function searchUser({
             rej(error)
         }
 
-        debugger
         res({ data: JSON.parse(JSON.stringify(result)), totalPage })
     })
 }

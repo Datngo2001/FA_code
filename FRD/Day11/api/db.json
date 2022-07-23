@@ -6,6 +6,11 @@
       "name": "Nguyen Van Nam",
       "createdAt": 1658250431897,
       "id": 1
+    },
+    {
+      "email": "nam@gamail.com",
+      "password": "$2a$10$CBx56VhW71KeCOdO2M8ffu3ikRh34uyaGa2zD04d9XzCVb8OXUW4y",
+      "id": 2
     }
   ],
   "todos": [
@@ -14,6 +19,16 @@
       "done": false,
       "createdAt": 1658239630639,
       "id": 1
+    },
+    {
+      "description": "Xin chao",
+      "done": false,
+      "id": 2
+    },
+    {
+      "description": "asfasf",
+      "done": false,
+      "id": 3
     }
   ]
 }

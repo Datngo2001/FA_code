@@ -4,7 +4,6 @@ import { ThemeContext } from "../contexts/ThemeContext";
 
 function ThemeSection() {
   const { darkTheme, tougleDarkTheme } = useContext(ThemeContext);
-  debugger;
   const themeStyle = {
     background: darkTheme ? "#555" : "#eee",
     color: darkTheme ? "white" : "black",
