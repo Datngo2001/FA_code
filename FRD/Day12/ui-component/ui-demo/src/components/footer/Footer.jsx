@@ -1,7 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+import styles from "./footer.module.css";
 
 function Footer(props) {
-  return <div>Footer</div>;
+  return (
+    <div className={styles["container"]}>
+      <span className={styles["footer"]}>Copy right your website 2020</span>
+    </div>
+  );
 }
 export default Footer;

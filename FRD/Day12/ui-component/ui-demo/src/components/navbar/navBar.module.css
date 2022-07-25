@@ -1,0 +1,44 @@
+.nav-container{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav{
+    width: 1000px;
+    max-width: 100%;
+    margin: auto;
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.nav-left{
+    font-weight:bolder;
+}
+
+.nav-right{
+    display: flex;
+}
+.nav-right .link{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.item{
+    position: relative;
+}
+
+.link{
+    color: #fff !important;
+    text-decoration: none;
+    transition: color ease-in-out 0.2s;
+}
+.link:hover{
+    color: #fff;
+}
