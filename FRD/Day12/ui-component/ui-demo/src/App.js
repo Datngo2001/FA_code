@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './app.module.css';
 import NavBar from "./components/navbar/NavBar"
 import Banner from "./components/banner/Banner"
