@@ -1,6 +1,0 @@
-useEffect chay khi component didUpdate
-function tra ve trong callback cua useEffect se dc goi khi component distroy
-
-$0 trong console
-
-React ForwardRef

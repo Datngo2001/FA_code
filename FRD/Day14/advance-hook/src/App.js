@@ -18,8 +18,8 @@ function App() {
       {/* <CustomInput></CustomInput> */}
       {/* <FancyInput ref={refInput}></FancyInput> */}
       {/* <InputTheme></InputTheme> */}
-      {/* <ProductPage></ProductPage> */}
-      <ModalContainer></ModalContainer>
+      <ProductPage></ProductPage>
+      {/* <ModalContainer></ModalContainer> */}
     </div>
   );
 }

@@ -9,15 +9,15 @@ function ProductPage() {
     color: darkTheme ? "#fff" : "#000",
   };
 
-  const handleToggle = useCallback((id) => {
-    console.log(id);
+  const handleItemClick = useCallback((id) => {
+    console.log(darkTheme);
   }, []);
 
   return (
     <div style={style}>
       <h2>ProductPage</h2>
       <button onClick={() => setDarkTheme((val) => !val)}>Toggle Theme</button>
-      <ProductList onItemClick={handleToggle}></ProductList>
+      <ProductList onItemClick={handleItemClick}></ProductList>
     </div>
   );
 }
