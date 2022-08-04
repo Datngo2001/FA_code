@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router';
+import Home from './pages/Home/Home'
 import './App.css';
+import DemoHigherOrderComponent from './pages/DemoHigherOrderComponent/DemoHigherOrderComponent';
+import Navigation from './layouts/Navigation/Navigation';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation></Navigation>
+      <div className="route-container">
+        <Routes>
+          <Route path='/' element={<Home />} index></Route>
+          <Route path='/higher-order-function' element={<DemoHigherOrderComponent />} index></Route>
+        </Routes>
+      </div>
     </div>
   );
 }

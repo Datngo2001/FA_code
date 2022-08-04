@@ -1,0 +1,17 @@
+.active .indicator{
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+    transition: all ease-in-out 0.5s;
+}
+.normal{
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+}
+.normal button{
+    color: inherit;
+    font-size: 1rem;
+    border-radius: 0;
+    text-align: start;
+}
