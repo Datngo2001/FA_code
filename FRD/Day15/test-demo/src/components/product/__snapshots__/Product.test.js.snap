@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Product/> should render correcttly when items has value 1`] = `
+<div>
+  <h2>
+    Product
+  </h2>
+  <p />
+  <p />
+  <p />
+</div>
+`;
+
+exports[`<Product/> should render correcttly when items is empty 1`] = `
+<div>
+  <h2>
+    Product
+  </h2>
+  <div>
+    No Item
+  </div>
+</div>
+`;
