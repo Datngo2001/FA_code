@@ -1,0 +1,23 @@
+import React, { Component } from "react";
+
+export class UserList extends Component {
+  render() {
+    const users = this.props.users;
+    return (
+      <div>
+        <h2>UserList</h2>
+        {users?.length > 0 && (
+          <div>
+            {users.map((user) => (
+              <p>
+                Name: {user.name}, age: {user.age}
+              </p>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+}
+
+export default UserList;
