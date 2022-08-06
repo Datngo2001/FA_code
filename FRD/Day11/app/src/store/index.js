@@ -4,6 +4,7 @@ import allReducer from "./allReducer";
 import createSagaMiddileware from "redux-saga"
 import { watchTodoAction } from "./todo/todoSaga";
 import rootSaga from "./rootSaga";
+
 const composeEnhancer = composeWithDevTools({ trace: true });
 const sagaMiddleware = createSagaMiddileware()
 

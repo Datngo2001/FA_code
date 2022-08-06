@@ -38,10 +38,9 @@ function OptimizeRender() {
       <h1>OptimizeRender</h1>
       <UserList users={userList} />
       {/* <UserListMemo users={userList} />
-      <UserListShouldComponentUpdate users={userList} />
-      <button onClick={addUser}>Add user</button> */}
+      <UserListShouldComponentUpdate users={userList} /> */}
+      <button onClick={addUser}>Add user</button>
       <br />
-
       {/* <ProductPage /> */}
       <button onClick={() => setShowCounter((v) => !v)}>Toggle counter</button>
       {showCounter && <Counter />}

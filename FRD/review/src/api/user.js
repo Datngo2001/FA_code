@@ -1,5 +1,5 @@
 import api from "./index"
 
-export function getUsers({ query, }) {
-    return api.get("/users");
+export function login({ id }) {
+    return api.get(`/users/${id}`);
 }
