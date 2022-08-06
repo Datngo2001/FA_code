@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "email": "nam@gmail.com",
+      "password": "$2a$10$H48lGsWtmTpsG7ex/YuLD.FPr63LVPhQv/k8QWfmT1JjsOZhJGl6u",
+      "id": 1
+    }
+  ],
+  "todos": [
+    {
+      "description": "Learn React",
+      "done": false,
+      "id": 1
+    },
+    {
+      "description": "Read book",
+      "done": false,
+      "id": 2
+    }
+  ]
+}
