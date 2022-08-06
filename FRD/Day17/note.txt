@@ -1,0 +1,2 @@
+^ cho phep cap nhat
+packagejson version syntax
