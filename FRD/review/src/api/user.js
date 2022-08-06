@@ -1,5 +1,5 @@
-import api from "./index"
+import { api } from ".";
 
-export function login({ id }) {
+export function signin({ id }) {
     return api.get(`/users/${id}`);
 }
