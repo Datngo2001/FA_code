@@ -2,3 +2,8 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+.app-route-container{
+    width: 1000px;
+    max-width: 100%;
+    margin: auto;
+}

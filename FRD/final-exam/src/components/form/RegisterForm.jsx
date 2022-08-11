@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-function LoginForm({ handleSubmit, isLoading }) {
+function RegisterForm({ handleSubmit, isLoading }) {
   const [inputs, setInputs] = useState({
     email: '',
     password: ''
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -12,8 +13,30 @@ function LoginForm({ handleSubmit, isLoading }) {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  const validatePassword = (pass) => {
+    if (pass && pass.lenght < 12) {
+      return false;
+    }
+    if (pass.includes('< or >') || pass.includes('<or>')) {
+      return false;
+    }
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (!specialChars.test(pass)) {
+      return false;
+    }
+    return true;
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!(inputs.email || inputs.password)) {
+      setError('Email or password must be inputed');
+      return;
+    }
+    if (!validatePassword(inputs.password)) {
+      setError('Password must have special character');
+      return;
+    }
     handleSubmit(inputs);
   };
 
@@ -45,17 +68,18 @@ function LoginForm({ handleSubmit, isLoading }) {
           onChange={handleChange}
         />
       </div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       {isLoading ? (
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
       ) : (
         <button type="submit" className="btn btn-primary">
-          Login
+          Register
         </button>
       )}
     </form>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-function RegisterForm({ handleSubmit, isLoading }) {
+function LoginForm({ handleSubmit, isLoading }) {
   const [inputs, setInputs] = useState({
     email: '',
     password: ''
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -14,6 +15,10 @@ function RegisterForm({ handleSubmit, isLoading }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!(inputs.email || inputs.password)) {
+      setError('Email or password must be inputed');
+      return;
+    }
     handleSubmit(inputs);
   };
 
@@ -21,7 +26,7 @@ function RegisterForm({ handleSubmit, isLoading }) {
     <form onSubmit={onSubmit}>
       <div className="mb-3">
         <label htmlFor="emailInput" className="form-label">
-          Email
+          Email Address
         </label>
         <input
           name="email"
@@ -45,17 +50,18 @@ function RegisterForm({ handleSubmit, isLoading }) {
           onChange={handleChange}
         />
       </div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       {isLoading ? (
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
       ) : (
         <button type="submit" className="btn btn-primary">
-          Register
+          Login
         </button>
       )}
     </form>
   );
 }
 
-export default RegisterForm;
+export default LoginForm;
