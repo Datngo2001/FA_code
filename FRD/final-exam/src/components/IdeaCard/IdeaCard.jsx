@@ -4,7 +4,7 @@ import styles from './ideacard.module.css';
 
 function IdeaCard({ title, brief, tag, createAt, onClick }) {
   return (
-    <Card style={{ width: '18rem' }} onClick={onClick}>
+    <Card style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{brief}</Card.Text>
@@ -13,6 +13,7 @@ function IdeaCard({ title, brief, tag, createAt, onClick }) {
           <Badge bg="secondary">{createAt}</Badge>
         </div>
       </Card.Body>
+      <span className="stretched-link" onClick={onClick}></span>
     </Card>
   );
 }

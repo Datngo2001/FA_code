@@ -2,14 +2,19 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { getAll, search } from '../../api/idea';
 import IdeaSearchForm from '../../components/form/IdeaSearchForm';
 import IdeaCard from '../../components/IdeaCard/IdeaCard';
+import { NeedLoginModal } from '../../components/modal/NeedLoginModal';
+import { convertDate } from '../../util/convertDate';
 import styles from './home.module.css';
 
 function Home() {
   const [ideas, setIdeas] = useState([]);
   const { user } = useSelector((state) => state.user);
+  const [show, setShow] = useState();
+  const navigate = useNavigate();
 
   const handleSearch = (term) => {
     console.log(term);
@@ -29,9 +34,17 @@ function Home() {
       })
       .catch((err) => console.log(err));
   }, [user?.id]);
-  const handleCardClick = () => {
-    console.log('click');
+
+  const handleCardClick = (id) => {
+    return () => {
+      if (!user) {
+        setShow(true);
+        return;
+      }
+      navigate(`/ideas/${id}`);
+    };
   };
+
   return (
     <div>
       <div className={styles['form-container']}>
@@ -45,23 +58,12 @@ function Home() {
             brief={idea.brief}
             tag={idea.tag}
             createAt={convertDate(idea.createdAt)}
-            onClick={handleCardClick}></IdeaCard>
+            onClick={handleCardClick(idea.id)}></IdeaCard>
         ))}
       </div>
+      <NeedLoginModal show={show} handleClose={() => setShow(false)}></NeedLoginModal>
     </div>
   );
-}
-
-function convertDate(input) {
-  const date = new Date(input);
-  const yyyy = date.getFullYear();
-  let mm = date.getMonth() + 1; // Months start at 0!
-  let dd = date.getDate();
-
-  if (dd < 10) dd = '0' + dd;
-  if (mm < 10) mm = '0' + mm;
-
-  return dd + '/' + mm + '/' + yyyy;
 }
 
 export default Home;

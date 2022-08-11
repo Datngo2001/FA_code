@@ -7,3 +7,7 @@ export function getAll() {
 export function search(term) {
     return api.get(`/ideas?q=${term}`);
 }
+
+export function getId(id) {
+    return api.get(`/ideas/${id}`);
+}

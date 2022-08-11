@@ -35,7 +35,7 @@ const App = () => {
           <Route
             path="/ideas/:id"
             element={
-              <ProtectedRoute condition={user}>
+              <ProtectedRoute condition={user} redirectPath="/">
                 <IdeaDetail />
               </ProtectedRoute>
             }
@@ -43,11 +43,12 @@ const App = () => {
           <Route
             path="/profile"
             element={
-              <ProtectedRoute condition={user}>
+              <ProtectedRoute condition={user} redirectPath="/">
                 <IdeaDetail />
               </ProtectedRoute>
             }
           />
+          <Route path="*" element={<Home />} />
         </Routes>
       </div>
     </div>
