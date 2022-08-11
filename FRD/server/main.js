@@ -24,6 +24,6 @@ app.use(rules);
 app.use(auth);
 
 app.use("/api", router);
-app.listen(3005, () => {
-  console.log("JSON Server is running at http://localhost:3005");
-});
+app.listen(3003, () => {
+  console.log("JSON Server is running at http://localhost:3003");
+}); 

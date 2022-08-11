@@ -4,6 +4,21 @@
       "email": "nam@gmail.com",
       "password": "$2a$10$H48lGsWtmTpsG7ex/YuLD.FPr63LVPhQv/k8QWfmT1JjsOZhJGl6u",
       "id": 1
+    },
+    {
+      "email": "19110115@student.hcmute.edu.vn",
+      "password": "$2a$10$pIGNpJl9OGnOo57RsNWXxewFNIRKLIAhfB.aTceiJXYSQAd/E8MWS",
+      "id": 2
+    },
+    {
+      "email": "ngominhdat110115@gmail.com",
+      "password": "$2a$10$csWOVhB5tsfk1m11AQAAMedlYro58jYjFDVBRyKKHMBxtQl1ZWihm",
+      "id": 3
+    },
+    {
+      "email": "123123123@gmail.com",
+      "password": "$2a$10$opi/LVHVTF/MXcpDRAbBuOZcKga35/.l/mqEXAXTgmAJW.pbVmjui",
+      "id": 4
     }
   ],
   "todos": [

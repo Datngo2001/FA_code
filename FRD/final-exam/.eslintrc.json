@@ -23,7 +23,8 @@
         "quotes": [
             "off",
             "double"
-        ]
+        ],
+        "react/prop-types":["off"]
     },
     "settings": {
         "react": {
